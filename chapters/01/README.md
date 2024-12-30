@@ -89,3 +89,15 @@ A _primitive gate_ is a standalone gate that is readily available to the designe
 
 In order to build out the chips in this project, a Hardware Simulator that can read and run programs written in a Hardware Description Language (HDL) is supplied by the authors. Combined with the provided test scripts, this allows test-driven implementation of the chips required.
 
+
+## Project
+
+### NAND
+
+`NAND` is considered a primitive, in which the basis of the whole course is that all other gates will be implemented from it.
+
+### NOT
+
+At first, I thought there's only so many combinations we can do with `NAND` gates that it's hard not to stumble for the implementation of [`NOT`](./Not.hdl). But it's much simpler than that -- since `NOT` only accepts one input, it means we can ignore half of `NAND`s truth table (the 0/1 and 1/0) and see that passing the input into both `NAND`'s input pins achieve the same effect.
+
+![](./img/not.png)
