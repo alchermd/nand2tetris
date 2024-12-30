@@ -125,3 +125,42 @@ Given that I already ruled out any usage of `AND` + `NOT`, I just plugged in `NA
 ![](./img/or.png)
 
 Side note: this is the first time I solved `OR` without brute-forcing its canonical representation. Yay! 🥳
+
+### XOR
+
+The [`XOR`](./Xor.hdl) gate obviously will use an `OR` gate. Perhaps passing its input to another gate will do the job?
+
+**Hindsight:** No, it was not that simple.
+
+A `NAND` gate will be crucial here as it is the only one that results in 0 for 1/1.
+
+My theory is that if the gate has two inputs, and we're trying out two gates in the front, they have to be identical
+gates. Otherwise, it wouldn't make sense for 1/0 and 0/1.
+
+After playing around with the two chip in the front layout, I noticed that I'm always getting unique combinations. There
+has to be a duplicate as 0/0 and 1/1 are the same in `XOR`.
+
+**Hindsight**: I'm correct here, and we'll have to negate one of the inputs to get a differing result.
+
+`OR`-ing each input separately is essentially a noop.
+
+After about an hour, I realized that I'm overthinking this. I can imagine this should be 3-4 gates max.
+
+**Hindsight**: Yes, I was too caught up with the similarities of `XOR` to `OR` when it should've been obvious that
+there's no quick way to match their truth tables with the gates we have so far.
+
+The key is to negate one of the inputs. Picking the next gate to use can be done randomly -- I happened to pick `OR`.
+Having seen the result of `a + !b` is the same for 0/0 and 1/1, I just need to find a pair for each result that I can
+`AND` or `NAND` to get the `XOR` value.
+
+| a | b | `a + !b` | `NAND` to get `XOR` value | Expected `XOR` |
+|---|---|----------|---------------------------|----------------| 
+| 0 | 0 | 1        | 1                         | 0              |
+| 0 | 1 | 0        | 1                         | 1              | 
+| 1 | 0 | 1        | 0                         | 1              | 
+| 1 | 1 | 1        | 1                         | 0              |
+
+I arrived at the following layout, which I'm also quite proud of as I haven't implemented `XOR` beforehand without
+relying on its canonical representation 🥳
+
+![](./img/xor.png)
