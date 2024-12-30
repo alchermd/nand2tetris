@@ -107,3 +107,21 @@ At first, I thought there's only so many combinations we can do with `NAND` gate
 Logically, if `NAND` is negated [`AND`](./And.hdl), we could just negate it again to get it back, right?
 
 ![](./img/and.png)
+
+### OR
+
+There doesn't seem to be an obvious connection to the behavior of [`OR`](./Or.hdl) with our existing gates so far. My first thought is to `NOT` one of the input pins and pass the other to either `NAND` or `AND`. But this would fail as 1/0 and 0/1 will always yield different results.
+
+Negating the inputs and passing it to `AND` is the same as using a `NAND`. Negating the output of `AND` is also the same as a `NAND`. This reduces the combinations we need to think regarding `NOT` and `AND` gates.
+
+`NAND` and `OR` has the same results for 1/0 and 0/1. `AND` and `OR` has the same results for 0/0 and 1/1. I unfortunately was not able to get anywhere with this idea, as it requires the use of `NOT` in conjunction with `AND` to get anything meaningful.
+
+In the end, I took the approach of picking a plausible gate layout and working my way backwards from the `OR`'s truth table.
+
+![](./img/or-layout.png)
+
+Given that I already ruled out any usage of `AND` + `NOT`, I just plugged in `NAND` gates and realized that a three of them will do the job.
+
+![](./img/or.png)
+
+Side note: this is the first time I solved `OR` without brute-forcing its canonical representation. Yay! 🥳
