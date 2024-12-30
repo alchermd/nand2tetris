@@ -8,7 +8,7 @@ I've heard of NAND2Tetris back in 2016 and have attempted to finish it for at le
 
 ## Repository Structure
 
-> TODO: Describe how the repository is structured and how to run the project solutions.
+For each chapter, a README file containing my notes are found in the [chapters](./chapters) directory. In the same directory, a `project` folder contains the source code for that chapter's project. Instructions on how to run each chapter's project can be found in their respective README file.
 
 ## License
 
