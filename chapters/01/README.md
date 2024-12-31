@@ -178,3 +178,14 @@ Testing my `AND` theory quickly reveals that I misunderstood the spec -- `sel` p
 Figuring out what to do with either inputs is just a matter of running through the truth table and picking a suitable gate, in which `OR` fits the bill.
 
 ![](./img/mux.png)
+
+### Demultiplexor (DMUX)
+
+[`DMUX`](./DMux.hdl) on the other hand is the first chip with more than one output.
+
+At first glance I can see that half of the work is just utilizing the `if x then y` pattern from `MUX`. 
+
+**Hindsight**: It's not half the problem, that's pretty much it.
+
+![](./img/dmux.png)
+
