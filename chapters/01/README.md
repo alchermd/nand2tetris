@@ -189,3 +189,8 @@ At first glance I can see that half of the work is just utilizing the `if x then
 
 ![](./img/dmux.png)
 
+### 16-bit version of basic gates
+
+Not a lot to say here. Implementing [`NOT16`](./Not16.hdl), [`AND16`](./And16.hdl), [`OR16`](./Or16.hdl), and [`MUX16`](./Mux16.hdl) is just a matter of lining up 16 pieces of the relevant single-bit gate/chip and feeding each input to the output.
+
+![](./img/n-bit.png)
