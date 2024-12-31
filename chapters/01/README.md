@@ -164,3 +164,17 @@ I arrived at the following layout, which I'm also quite proud of as I haven't im
 relying on its canonical representation 🥳
 
 ![](./img/xor.png)
+
+### Multiplexor (MUX)
+
+[`MUX`](./Mux.hdl) is the first chip with more than 2 inputs. My first thought is to feed `a` and `b` to an existing gate, and then feed the result in conjunction with `sel` to another gate. 
+
+**Hindsight**: This is an incorrect way of thinking through this problem, but would be beneficial when I tackle multi-way gates.
+
+I'll try to find a way to do `if x then y` first. This allows me to say `if sel then a` as well as `if !sel then b`. I then almost instantly figured out that's what an `AND` gate does.
+
+Testing my `AND` theory quickly reveals that I misunderstood the spec -- `sel` pertains to the index, thus it should be `if !sel then a` as `a` is the zeroth input.
+
+Figuring out what to do with either inputs is just a matter of running through the truth table and picking a suitable gate, in which `OR` fits the bill.
+
+![](./img/mux.png)
