@@ -219,9 +219,17 @@ I think this fact could allow us to divide the problem into two multiplexors and
 
 ![](./img/mux-4way-16.png)
 
-
 ### 8-way 16-bit Mux
 
 The [8-way version](./Mux8Way16.hdl) should follow the same pattern, this time using the 4-way version from the prior step. The extra selector bit will be used to decide which multiplexor to choose from.
 
 ![](./img/mux-8way-16.png)
+
+
+### 4-way DMux
+
+My first thought is to follow the same approach and use two `DMUX` chips to implement the [4-way version](./DMux4Way.hdl).
+
+**Hindsight**: This is the correct line of thinking. The last step is to use the extra `sel` bit (by using `AND`) to see if the result should be emitted.
+
+![](./img/dmux-4way.png)
