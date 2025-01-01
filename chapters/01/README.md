@@ -200,3 +200,21 @@ Not a lot to say here. Implementing [`NOT16`](./Not16.hdl), [`AND16`](./And16.hd
 Connecting each `OR`'s output and passing it to the next `OR` with the next input variable is how we implement an [n-way OR](./Or8Way.hdl).
 
 ![](./img/n-way.png)
+
+### 4-way 16-bit Mux
+
+A [`Mux4Way16`](./Mux4Way16.hdl)'s truth table shows that `a/b` can only be selected when `sel[1]` is `0`, and `c/d` can only be selected when `sel[1]` is `1`.
+
+| sel[1] | sel[0] | out |
+|--------|--------|-----|
+| 0      | 0      | a   |
+| 0      | 1      | b   |
+| 1      | 0      | c   |
+| 1      | 1      | d   |
+
+I think this fact could allow us to divide the problem into two multiplexors and then use another one to decide which to output.
+
+**Hindsight**: It's more accurate to think that `sel[0]` selects the values and `sel[1]` selects from which multiplexer to choose from.
+
+
+![](./img/mux-4way-16.png)
