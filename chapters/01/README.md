@@ -233,3 +233,11 @@ My first thought is to follow the same approach and use two `DMUX` chips to impl
 **Hindsight**: This is the correct line of thinking. The last step is to use the extra `sel` bit (by using `AND`) to see if the result should be emitted.
 
 ![](./img/dmux-4way.png)
+
+### 8-way DMux
+
+The [8-way version](./DMux8Way.hdl) should follow the same pattern, but using the 4-way version and adding an extra `AND` as there are now two bits of extra selector.
+
+**Hindsight**: Nope, no extra `AND`s as there's only one extra selector bit. Oops!
+
+![](./img/dmux-8way.png)
