@@ -106,3 +106,9 @@ As prescribed in the book, it's probably best to start with the `zx` and `nx` fl
 This can be done by multiplexing between `x` and `false`.
 
 ![](./img/alu-zx.png)
+
+#### Implementing the nx flag
+
+We fork `zx`'s output into a `NOT` and multiplex between the two using `nx`.
+
+![](./img/alu-nx.png)
