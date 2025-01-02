@@ -77,3 +77,19 @@ Perhaps [Full Adder](./FullAdder.hdl) is as simple as connecting two half-adders
 I'm pretty certain that [adding 16 bits](./Add16.hdl) is just a matter of feeding all the bits to an array of full-adders and discarding the last carry.
 
 ![](./img/add16.png)
+
+### Incrementer
+
+An [incrementer](./Inc16.hdl) should just be the input fed to an adder with the other pin fed a hardcoded `1` on the
+least significant bit.
+
+**Hindsight**: The tricky part is the HDL syntax for doing hardcoded inputs.
+
+```
+// It should be noted that we can start by setting b=false, which gives it a value of 0000000000000000.
+// Setting b[0]=true then asserts the least significant bit, giving us 0000000000000001.
+Add16(a=in, b=false, b[0]=true, out=out);
+```
+
+![](./img/inc.png)
+
