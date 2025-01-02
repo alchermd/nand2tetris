@@ -34,3 +34,9 @@ Counters are chips that emits incremental values, and often comes with reset (to
 We can imagine that an `ALU` is provided inputs from a nearby register and one that is physically farther away. Given that an `ALU` is combinational, it has no concept of time, and it will happily calculate whatever is given to it. 
 
 How can we overcome this problem? Given that the `ALU`'s output will be stored in another sequential chip (`RAM` or a register location), then as long as the clock cycle is slightly longer than the time it takes for a bit to travel between the two farthest chip locations in the architecture, then the `ALU`'s output will always be synchronized by the end of each time unit.
+
+## Project
+
+### Bit
+
+As shown in the [registers section](#registers), a [`BIT`](./a/Bit.hdl) can be implemented using a `DFF` and a `MUX`.
