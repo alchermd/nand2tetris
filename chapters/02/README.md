@@ -93,3 +93,16 @@ Add16(a=in, b=false, b[0]=true, out=out);
 
 ![](./img/inc.png)
 
+### Arithmetic Logic Unit (ALU)
+
+An [`ALU`](./ALU.hdl) provides arithmetic functionalities that is utilized by the CPU. This course's `ALU` design is specific for the computer architecture that we're aiming for, but it still provides enough capability to do what we need it to do.
+
+The `ALU` works by exposing six control bits, which allows for 64 different combinations. 18 of these are of interest and documented by the book.
+
+As prescribed in the book, it's probably best to start with the `zx` and `nx` flags, and then incrementally adding the other flags and outputs.
+
+#### Implementing the zx flag
+
+This can be done by multiplexing between `x` and `false`.
+
+![](./img/alu-zx.png)
