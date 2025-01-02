@@ -44,3 +44,13 @@ As shown in the [registers section](#registers), a [`BIT`](./a/Bit.hdl) can be i
 ### Register
 
 A [Register](./a/Register.hdl) is just an array of 16 `BIT`s.
+
+### RAM8
+
+A [`RAM8`](./a/RAM8.hdl) is 8 registers lined up, with logic to select a register using the `address` input. This could
+be done using an `MUX8WAY16`.
+
+**Hindsight**: The above implements the RAM's output, but not how the RAM stores the data. This part can be done using
+an `DMUX8WAY` on the `load` and `address` input.
+
+![](./img/ram8.png)
