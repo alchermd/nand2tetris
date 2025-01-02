@@ -54,3 +54,11 @@ Adding any binary number will also yield the correct decimal number, considering
 ```
 
 A nice feature of 2's complement is that the most significant bit asserts whether the number is positive (0) or negative (1).
+
+## Project
+
+### Half-Adder
+
+Looking at the [Half Adder](./HalfAdder.hdl)'s truth table, it's easy to spot that `carry` can be achieved by `AND`. The `sum` on the other hand can be computed by an `XOR`.
+
+![](./img/half-adder.png)
