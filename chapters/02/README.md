@@ -62,3 +62,11 @@ A nice feature of 2's complement is that the most significant bit asserts whethe
 Looking at the [Half Adder](./HalfAdder.hdl)'s truth table, it's easy to spot that `carry` can be achieved by `AND`. The `sum` on the other hand can be computed by an `XOR`.
 
 ![](./img/half-adder.png)
+
+### Full-Adder
+
+Perhaps [Full Adder](./FullAdder.hdl) is as simple as connecting two half-adders?
+
+**Hindsight**: Not quite. Since we're getting two `carry`s, we need to `OR` them to get the actual final `carry` result.
+
+![](./img/full-adder.png)
