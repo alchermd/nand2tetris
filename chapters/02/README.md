@@ -140,3 +140,9 @@ We have to somehow implement 16-bit equality using our existing chips. We can im
 **Hindsight**: `NOR` is not a primitive gate, so I have to use an `OR` with a `NOT` instead. 
 
 ![](./img/alu-zr.png)
+
+#### Implementing the ng output
+
+This is simply feeding the most-significant bit of `out` to `ng`
+
+![](./img/alu.png)
