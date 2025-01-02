@@ -112,3 +112,9 @@ This can be done by multiplexing between `x` and `false`.
 We fork `zx`'s output into a `NOT` and multiplex between the two using `nx`.
 
 ![](./img/alu-nx.png)
+
+#### Implementing the zy and ny flag
+
+We disconnect the existing output, then copy the configuration from the `zx` and `nx` flags and use its output instead for testing purposes.
+
+![](./img/alu-zy-ny.png)
