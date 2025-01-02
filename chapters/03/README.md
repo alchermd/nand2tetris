@@ -54,3 +54,9 @@ be done using an `MUX8WAY16`.
 an `DMUX8WAY` on the `load` and `address` input.
 
 ![](./img/ram8.png)
+
+### RAM64
+
+Any of the larger `RAM`s can be built using its smaller counterparts and adding the necessary logic to handle the larger address space.
+
+![](./img/ram64.png)
