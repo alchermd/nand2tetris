@@ -118,3 +118,9 @@ We fork `zx`'s output into a `NOT` and multiplex between the two using `nx`.
 We disconnect the existing output, then copy the configuration from the `zx` and `nx` flags and use its output instead for testing purposes.
 
 ![](./img/alu-zy-ny.png)
+
+#### Implementing the f flag
+
+We'll have to compute `x+y` and `x&y` and multiplex between them using the `f` flag into `out`.
+
+![](./img/alu-f.png)
