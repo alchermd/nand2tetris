@@ -132,3 +132,11 @@ We'll have to multiplex between `out` and `!out` using the `no` flag.
 ![](./img/alu-no.png)
 
 This completes the `ALU`'s functionality for its `out` output.
+
+#### Implementing the zr output
+
+We have to somehow implement 16-bit equality using our existing chips. We can implement this by using two `OR8WAY`s and a `NOR`.
+
+**Hindsight**: `NOR` is not a primitive gate, so I have to use an `OR` with a `NOT` instead. 
+
+![](./img/alu-zr.png)

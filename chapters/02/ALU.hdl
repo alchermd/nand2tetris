@@ -54,5 +54,10 @@ CHIP ALU {
         Mux16(a=f.and, b=f.add, sel=f, out=f.out);
 
         Not16(in=f.out, out=not.f.out);
-        Mux16(a=f.out, b=not.f.out, sel=no, out=out);
+        Mux16(a=f.out, b=not.f.out, sel=no, out=out, out[0..7]=out.1, out[8..15]=out.2);
+
+        Or8Way(in=out.1, out=out8way.1);
+        Or8Way(in=out.2, out=out8way.2);
+        Or(a=out8way.1, b=out8way.2, out=is.not.zero);
+        Not(in=is.not.zero, out=zr);
 }
