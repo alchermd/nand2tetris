@@ -70,3 +70,10 @@ Perhaps [Full Adder](./FullAdder.hdl) is as simple as connecting two half-adders
 **Hindsight**: Not quite. Since we're getting two `carry`s, we need to `OR` them to get the actual final `carry` result.
 
 ![](./img/full-adder.png)
+
+
+### 16-bit Adder
+
+I'm pretty certain that [adding 16 bits](./Add16.hdl) is just a matter of feeding all the bits to an array of full-adders and discarding the last carry.
+
+![](./img/add16.png)
