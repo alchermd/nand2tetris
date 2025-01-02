@@ -40,3 +40,7 @@ How can we overcome this problem? Given that the `ALU`'s output will be stored i
 ### Bit
 
 As shown in the [registers section](#registers), a [`BIT`](./a/Bit.hdl) can be implemented using a `DFF` and a `MUX`.
+
+### Register
+
+A [Register](./a/Register.hdl) is just an array of 16 `BIT`s.
