@@ -124,3 +124,11 @@ We disconnect the existing output, then copy the configuration from the `zx` and
 We'll have to compute `x+y` and `x&y` and multiplex between them using the `f` flag into `out`.
 
 ![](./img/alu-f.png)
+
+#### Implementing the no flag
+
+We'll have to multiplex between `out` and `!out` using the `no` flag.
+
+![](./img/alu-no.png)
+
+This completes the `ALU`'s functionality for its `out` output.
