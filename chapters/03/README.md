@@ -60,3 +60,11 @@ an `DMUX8WAY` on the `load` and `address` input.
 Any of the larger `RAM`s can be built using its smaller counterparts and adding the necessary logic to handle the larger address space.
 
 ![](./img/ram64.png)
+
+### Program Counter (PC)
+
+A [`PC`](./a/PC.hdl) is the same as a Register, but with an additional `reset` and `inc` flags. It can be implemented by adding `MUX` in each of the expected result, in order of importance (`reset` -> `inc` -> `load`).
+
+**Hindsight**: A crucial part of the `PC`'s implementation is that the internal Register's `load` bit is hardcoded to `true`, and the logic for what data to store is moved elsewhere.
+
+![](./img/pc.png)
