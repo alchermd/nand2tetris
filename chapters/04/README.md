@@ -90,3 +90,37 @@ while:
 endWhile:
     // code segment 2
 ```
+
+## Hack Machine Language
+
+### Memory Address Space
+
+There are two address spaces: an _instruction memory_ and _data memory_ space. Both are 16-bit wide and 15-bit
+addressable.
+
+The `CPU` can only read instructions from the instruction memory. It is a read-only device, and programs can be loaded
+onto it via the hardware simulator.
+
+### Registers
+
+There are two 16-bit registers, the `D` and `A` registers. The `D` register can only store data, while the `A` register
+can also store addresses. Given that addresses are 15-bits and Hack is a 16-bit platform, then there's not enough space
+to store the commands _and_ the address it will work on. Thus, a constant `M` is used to specify the data on the current
+value of the `A` register:
+
+```
+// D = M[512] + 1
+A=512
+D=M+1 // M refers to M[A] or M[512]
+```
+
+`A` is also used for jump instructions. In the same vein as memory addressing, storing the address in `A` and using a
+jump command afterward will move the program execution on the `InstructionMemory[A]`
+
+``` 
+@foo
+M=512
+0;JMP // jumps to M[12]
+```
+
+An assembly program for counting `1+...+100` can be found in [Count.asm](./Count.asm).
