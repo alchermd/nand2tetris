@@ -229,3 +229,14 @@ D=D-M // Fixed, as this does D=i-R1
 @END
 D;JGT
 ```
+
+#### Fill
+
+The [Fill.asm](./fill/Fill.asm) program listens to any keypress and fills the screen black when it detects one.
+
+I think I can break down the program into smaller steps:
+
+1. An infinite loop.
+2. Listen to any keypress in `KBD`.
+3. Write `1` to the first `SCREEN` byte.
+4. Write `1` to the whole `SCREEN` address space.
