@@ -11,7 +11,7 @@
 (ONPRESS)
     // Writes 1 to R0 when a key is pressed.
     // TODO: Write to the screen instead.
-    @R0
+    @SCREEN
     M=1
     @POSTKEYPRESSCHECK
     0;JMP
@@ -19,7 +19,7 @@
 (ONRELEASE)
     // Writes 0 to R0 when a key is pressed.
     // TODO: Write to the screen instead.
-    @R0
+    @SCREEN
     M=0
     @POSTKEYPRESSCHECK
     0;JMP
