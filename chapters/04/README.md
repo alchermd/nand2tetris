@@ -198,3 +198,34 @@ The screen is a 256x512 pixel device. Its full address is `SCREEN` + 16K. Each r
 #### Keyboard
 
 The currently pressed key's code is found at `KBD`. If no key is pressed, it defaults to 0.
+
+### Project
+
+#### Mult
+
+The [Mult.asm](./mult/Mult.asm) program takes the values in `R0` and `R1`, multiply them, and store the result in `R2`.
+
+This should be similar to how [Count.asm](./Count.asm) is implemented.
+
+**Hindsight**: The tricky part is the difference between `A` and `M`.
+
+```
+// Jump to END if (i - R1 > 0)
+@i
+D=M
+@R1
+D=D-A // This is incorrect, as this is equivalent to D=i-1
+@END
+D;JGT
+```
+This can be easily overlooked when using the Count.asm program as the base point. Remember, setting the A register to a constant and then accessing it via `A` is a different thing than setting the register to an address and accessing the _value on that address_ (pointers) via `M`.
+
+```
+// Jump to END if (i - R1 > 0)
+@i
+D=M
+@R1
+D=D-M // Fixed, as this does D=i-R1
+@END
+D;JGT
+```
