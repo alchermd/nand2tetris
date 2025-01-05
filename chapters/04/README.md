@@ -241,3 +241,5 @@ I think I can break down the program into smaller steps:
 3. Write `1` to the first `SCREEN` bit.
 4. Write `1` to the first `SCREEN` row.
 5. Write `1` to the whole `SCREEN` address space.
+
+**Hindsight**: I've managed to implement a separate write and clear functions, but it took me a while to realize that the tests are failing because I'm writing and clearing for too long. It should've been one function that iterates through the whole screen. And for each iteration, the keypress state is checked.
