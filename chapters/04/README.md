@@ -238,5 +238,6 @@ I think I can break down the program into smaller steps:
 
 1. An infinite loop.
 2. Listen to any keypress in `KBD`.
-3. Write `1` to the first `SCREEN` byte.
-4. Write `1` to the whole `SCREEN` address space.
+3. Write `1` to the first `SCREEN` bit.
+4. Write `1` to the first `SCREEN` row.
+5. Write `1` to the whole `SCREEN` address space.
