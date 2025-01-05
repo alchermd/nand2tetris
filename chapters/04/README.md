@@ -124,3 +124,77 @@ M=512
 ```
 
 An assembly program for counting `1+...+100` can be found in [Count.asm](./Count.asm).
+
+### Instructions
+
+There are two types of instructions in the Hack assembly language: the `A` instruction (address) and `C` instruction (
+compute).
+
+#### A Instruction
+
+An `A` instruction is an instruction that stores a 15-bit value to the `A` register. An example of an `A` instruction is
+`0000 0000 0000 0111`:
+
+``` 
+0000 // The first zero means that this is an A instruction
+0000
+0000
+0111 // The next 15-bits is the value to be stored, which in
+     // this case is the binary representation of 7.
+// This example is equivalent to A=7
+```
+
+The instruction above is equivalent to `@7` in assembly.
+
+#### C Instruction
+
+A `C` instruction contains information that states:
+
+1. What to compute?
+2. Where to store the data?
+3. What to do next?
+
+```
+111      // The first 1 means that this is an A instruction. The next two are not used.
+0001110  // The next 7 bits controls what compute function to use.
+         // This example computes D-1.
+100      // The next 3 bits controls where to store the function's result.
+         // This example stores it in the A register.
+000      // The last 3 bits controls what type of jump to do.
+         // This example does a null jump.
+// This example is equivalent to A=D-1
+```
+
+The instruction above is equivalent to
+
+```
+@foo
+M=D-1
+```
+
+### Special symbols
+
+| Symbol | Description                               |
+|--------|-------------------------------------------|
+| R0-R15 | Refers to the 16 RAM registers.           |
+| SP     | Alias to R0                               |
+| LCL    | Alias to R1                               |
+| ARG    | Alias to R2                               |
+| THIS   | Alias to R3                               |
+| THAT   | Alias to R4                               |
+| SCREEN | Alias to RAM[16384]                       |
+| KBD    | Alias to RAM[24576]                       |
+| (foo)  | Label symbol used for code segments/jumps |    
+| @bar   | User-defined variable symbol              |   
+
+### Input and Output
+
+The Hack platform is connected to a screen and keyboard. These are memory-mapped devices, which means writing and reading are done by flipping bits into their respective memory spaces. For example, drawing a particular pixel is done by writing to that pixel's particular memory address. A keyboard press is detected by whether a bit is 0/1.
+
+#### Screen
+
+The screen is a 256x512 pixel device. Its full address is `SCREEN` + 16K. Each row of the screen consists of 16 x 16-bits.
+
+#### Keyboard
+
+The currently pressed key's code is found at `KBD`. If no key is pressed, it defaults to 0.
