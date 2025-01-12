@@ -27,3 +27,14 @@ There are three common register types:
 ## Input / Output
 
 Input and output are done by manipulating bits on a _memory map_. For inputs, the memory map defines the physical state (a keypress writes the key code on memory). For output, the memory map drives the output device (a pixels is blackened by writing `1`, in which the device polls the memory map).
+
+## Project
+
+### Memory
+
+The `Memory` device is an abstraction for the Screen, Keyboard, and a 16k memory space.
+
+**Hindsight**: The chip selection is pretty straightforward. But properly using bus indices is what caught me by
+surprise -- the MSB (most significant bit) is indexed at `bus[len - 1]`, not `0`.
+
+![](./img/memory.png)
